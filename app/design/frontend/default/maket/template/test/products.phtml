@@ -1,0 +1,43 @@
+<select class="list-produits">
+	<?php
+		foreach ($this->getProducts() as $product)
+		{ 
+			?>
+				<option value="<?php echo $product->getId() ?>">
+					<?php
+						echo $product->getName();
+					?>
+				</option>
+			<?php
+		}
+	?>
+</select>
+
+
+
+<ul class="list-produits">
+	<?php
+		foreach ($this->getProducts() as $product)
+		{ 
+			?>
+				<li>
+					<?php
+						echo "<br>Pour le produit : ".$product->getName()."<br>";
+
+						$reviews = Mage::getModel('review/review')->getResourceCollection()
+				        ->addEntityFilter('product', $product->getId())
+				        ->addStatusFilter(Mage_Review_Model_Review::STATUS_APPROVED);
+
+				        if($reviews)
+				        {
+				        	foreach ($reviews as $review)
+							{
+								echo "'" . $review->getTitle() . "' ecrit par '" . $review->getNickname() .  "'. Créé le : " . $review->getCreated_at() . "<br>";	
+							}
+				        }
+					?>
+				</li>
+			<?php
+		}
+	?>
+</ul>

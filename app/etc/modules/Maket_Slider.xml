@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Maket_Slider>
+      <active>true</active>
+      <codePool>local</codePool>
+    </Maket_Slider>
+  </modules>
+</config>

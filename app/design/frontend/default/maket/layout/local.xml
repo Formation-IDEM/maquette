@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+
+<layout>
+
+	<default>
+
+		 <reference name="header">
+			<!-- <block type="core/template" name="test" template="cart/cart-header.phtml" before="-">
+			</block> -->
+			<block type="checkout/cart_sidebar" name="cart_header" template="cart/cart-header.phtml" before="-">
+				<action method="addItemRender"><type>simple</type><block>checkout/cart_item_renderer</block><template>checkout/cart/sidebar/default.phtml</template></action>
+				<action method="addItemRender"><type>grouped</type><block>checkout/cart_item_renderer_grouped</block><template>checkout/cart/sidebar/default.phtml</template></action>
+				<action method="addItemRender"><type>configurable</type><block>checkout/cart_item_renderer_configurable</block><template>checkout/cart/sidebar/default.phtml</template></action>
+				<block type="core/text_list" name="cart_sidebar.extra_actions" as="extra_actions" translate="label" module="checkout">
+					<label>Shopping Cart Sidebar Extra Actions</label>
+				</block>
+			</block>
+		</reference>
+
+		<reference name="top.links">
+			<action method="addLink" translate="label title" module="customer">
+				<label>Guide</label>
+				<url helper="customer/getAccountUrl"/>
+				<title>Guide</title>
+				<prepare/>
+				<urlParams/>
+				<position>110</position>
+			</action>
+		</reference>
+
+		<reference name="top.links">
+			<action method="addLink" translate="label title" module="customer">
+				<label>S'enregistrer</label>
+				<url helper="customer/getAccountUrl"/>
+				<title>S'enregistrer</title>
+				<prepare/>
+				<urlParams/>
+				<position>90</position>
+				<liParams>
+					<class>senregistrer</class>
+				</liParams>
+			</action>
+		</reference>
+
+		<reference name="content">
+
+			<block type="cms/block" name="bandeau" after="-">
+				<action method="setBlockID">
+					<block_id>bandeau</block_id>
+				</action>
+			</block>
+
+
+			
+
+			<!--  <block type="core/template" name="custom-featuredProduct" as="featured_product" template="custom/featured-product.phtml"> 
+				<action method="setData"><key>category_id</key><value>17</value></action> 
+				<action method="setData"><key>label</key><value>Product du mois</value></action> 
+			</block> -->
+
+		</reference>
+		
+	</default>
+	
+	<!--gestion de la page d'accueil-->
+	<cms_index_index translate="label">
+
+		<reference name="content">
+			<block type="page/html" name="slider_block" template="slider/slider.phtml">
+			</block>
+
+			<block type="cms/block" name="premier_block" after="-">
+				<action method="setBlockID">
+					<block_id>premier_block</block_id>
+				</action>
+			</block>
+
+			<block type="cms/block" name="deuxieme_block" after="-">
+				<action method="setBlockID">
+					<block_id>deuxieme_block</block_id>
+				</action>
+			</block>
+
+			<block type="cms/block" name="troisieme_block" after="-">
+				<action method="setBlockID">
+					<block_id>troisieme_block</block_id>
+				</action>
+			</block>
+
+			<block type="page/html" name="proteine" template="accueil/proteine-vedette.phtml">
+			</block> 
+
+			<block type="catalog/product_list" name="list_accueil" template="accueil/list.phtml">
+				<action method="setCategoryId"><category_id>20</category_id></action>
+			</block>
+
+			<block type="page/html" name="prog_nat_silhouette" template="accueil/programme-national-silouhette.phtml">
+			</block>
+
+			<block type="cms/block" name="regime_hyperproteine" after="-">
+				<action method="setBlockID">
+					<block_id>regime_hyperproteine</block_id>
+				</action>
+			</block>
+			<block type="cms/block" name="link_info" after="-">
+				<action method="setBlockID">
+					<block_id>link_info</block_id>
+				</action>
+			</block>
+		</reference>
+
+	</cms_index_index>
+
+</layout>	

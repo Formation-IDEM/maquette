@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<layout>
+
+	<default>
+
+	</default>
+
+
+	<test_index_index>
+		<reference name="content">
+
+			<block type="test/products" name="test_block" template="test/products.phtml">
+				<action method="setCategoryId">
+					<id>17</id>
+				</action>
+			</block>
+
+		</reference>
+	</test_index_index>
+	
+
+</layout>	
